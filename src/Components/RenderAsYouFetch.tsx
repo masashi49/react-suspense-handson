@@ -12,7 +12,7 @@ const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 const useFetch = (url: string) => {
   if (Math.random() < 0.5) {
-    throw sleep(1000); // Promiseが解決されるまで、何度も呼び出す
+    throw sleep(1000); // 無理やりPromiseをthrowする
   }
   const { data, error } = useSWR(url, fetcher, { suspense: true });
   return { data, error };
